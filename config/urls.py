@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from ybs_transport.urls import router
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('api', include(router.urls)),
+    path('', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/', include('ybs.urls'))
+    path('api/', include('ybs_transport.urls'))
 ]
