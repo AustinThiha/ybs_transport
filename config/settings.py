@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-
 import dj_database_url
+from django.conf.global_settings import DATABASES
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -74,11 +74,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+DATABASES = {'default': dj_database_url.config(default='postgres://kyawthiha:wFXRqt6KDRWQmfv7hxyl8zDSaqtpGqaj@dpg-cg20tpndvk4ronvaeg6g-a.singapore-postgres.render.com/ybs')}
 
-DATABASES = {
-    'default': dj_database_url.parse(
-        '''postgres://kyawthiha:wFXRqt6KDRWQmfv7hxyl8zDSaqtpGqaj@dpg-cg20tpndvk4ronvaeg6g-a.singapore-postgres.render.com/ybs''')
-}
+# DATABASES = {
+#     'default': dj_database_url.config('postgres://kyawthiha:wFXRqt6KDRWQmfv7hxyl8zDSaqtpGqaj@dpg-cg20tpndvk4ronvaeg6g-a.singapore-postgres.render.com/ybs')
+# }
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
